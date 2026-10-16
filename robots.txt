@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://autodev-benchmark.pages.dev/sitemap.xml
