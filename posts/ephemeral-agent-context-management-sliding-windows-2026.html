@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ephemeral Agent Context Management: Sliding Windows & Summarization Trees | Tech Intelligence</title>
+  <style>
+    body { font-family: -apple-system, sans-serif; background: #0f172a; color: #f8fafc; line-height: 1.7; padding: 2rem 1rem; max-width: 800px; margin: 0 auto; }
+    h1 { color: #38bdf8; font-size: 2rem; border-bottom: 1px solid #334155; padding-bottom: 0.75rem; }
+    h2 { color: #818cf8; margin-top: 2rem; }
+    table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; background: #1e293b; border-radius: 0.5rem; overflow: hidden; }
+    th, td { border: 1px solid #334155; padding: 0.75rem 1rem; text-align: left; }
+    th { background: #0f172a; color: #38bdf8; }
+    a { color: #38bdf8; }
+    .back { display: inline-block; margin-bottom: 1.5rem; color: #94a3b8; text-decoration: none; }
+    .box { background: rgba(56, 189, 248, 0.1); border-left: 4px solid #38bdf8; padding: 1rem; margin: 1.5rem 0; border-radius: 4px; }
+  </style>
+</head>
+<body>
+  <a href="../index.html" class="back">← Back to Benchmarks Index</a>
+  <h1>Ephemeral Agent Context Management: Sliding Windows &amp; Summarization Trees</h1>
+  <p><em>Preserving execution coherence across 100+ continuation rounds while preventing context window saturation and token degradation.</em></p>
+
+  <div class="box">
+    <strong>Architectural Insight:</strong> Unconstrained conversational history accumulation inevitably causes "attention needle lost in a haystack" failures once token counts exceed 64,000 tokens. Implementing <strong>hierarchical recursive compaction and ephemeral sliding windows guarantees indefinite multi-day agent continuity</strong> without context bloat.
+  </div>
+
+  <h2>Context Compression Techniques Compared</h2>
+  <table>
+    <tr><th>Compression Pattern</th><th>Token Retention Ratio</th><th>Information Loss Risk</th><th>Context Latency</th></tr>
+    <tr><td><strong>Naive Sliding Window (Tail Only)</strong></td><td>Fixed (e.g. Last 10 Turns)</td><td>High (Loss of Genesis Instructions)</td><td>Zero Overhead</td></tr>
+    <tr><td><strong>Vector RAG Over History</strong></td><td>Variable (Top 5 Chunks)</td><td>Moderate (Semantic Drift &amp; Fragmenting)</td><td>+120 ms Vector Lookup</td></tr>
+    <tr><td><strong>Hierarchical Checkpoint Condensation</strong></td><td>Optimized (Summary + Active Tail)</td><td>Minimal (Facts Preserved Deterministically)</td><td>Single Summarization Call</td></tr>
+  </table>
+
+  <h2>Production Implementation Standard</h2>
+  <p>Structure multi-turn sessions into three immutable layers: (1) System Invariant Preamble, (2) Compacted Checkpoint Ledger, and (3) Active Working Memory Window. This ensures long-running daemons maintain 100% adherence to core financial objectives across arbitrary marathon runtimes.</p>
+</body>
+</html>
