@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stellar SEP-0007 QR Payment URIs: Seamless Web3 Point-of-Sale | Tech Intelligence</title>
+  <style>
+    body { font-family: -apple-system, sans-serif; background: #0f172a; color: #f8fafc; line-height: 1.7; padding: 2rem 1rem; max-width: 800px; margin: 0 auto; }
+    h1 { color: #38bdf8; font-size: 2rem; border-bottom: 1px solid #334155; padding-bottom: 0.75rem; }
+    h2 { color: #818cf8; margin-top: 2rem; }
+    table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; background: #1e293b; border-radius: 0.5rem; overflow: hidden; }
+    th, td { border: 1px solid #334155; padding: 0.75rem 1rem; text-align: left; }
+    th { background: #0f172a; color: #38bdf8; }
+    a { color: #38bdf8; }
+    .back { display: inline-block; margin-bottom: 1.5rem; color: #94a3b8; text-decoration: none; }
+    .box { background: rgba(56, 189, 248, 0.1); border-left: 4px solid #38bdf8; padding: 1rem; margin: 1.5rem 0; border-radius: 4px; }
+  </style>
+</head>
+<body>
+  <a href="../index.html" class="back">← Back to Benchmarks Index</a>
+  <h1>Stellar SEP-0007 QR Payment URIs: Seamless Web3 Point-of-Sale</h1>
+  <p><em>Standardizing mobile wallet payment requests with URI schemes, asset contracts, and cryptographic memo bindings.</em></p>
+
+  <div class="box">
+    <strong>Ecosystem Standard:</strong> SEP-0007 defines standard URI handlers (<code>web+stellar:pay?destination=...</code>) allowing mobile wallets (Lobstr, Freighter, xBull) to parse recipient addresses, exact token amounts, asset issuer signatures, and transaction memos from a single QR scan without error-prone manual input.
+  </div>
+
+  <h2>SEP-0007 URI Query Parameter Specification</h2>
+  <table>
+    <tr><th>Parameter</th><th>Required</th><th>Format & Validation</th><th>Description</th></tr>
+    <tr><td><code>destination</code></td><td>Yes</td><td>56-character Stellar public key (G...)</td><td>Recipient account address</td></tr>
+    <tr><td><code>amount</code></td><td>No</td><td>Decimal string (e.g. "12.50")</td><td>Exact payment amount in token units</td></tr>
+    <tr><td><code>asset_code</code></td><td>No</td><td>1-12 alphanumeric characters</td><td>Asset code (e.g. "USDC" or "XLM")</td></tr>
+    <tr><td><code>asset_issuer</code></td><td>Conditional</td><td>56-character account address</td><td>Required if asset_code is non-native</td></tr>
+    <tr><td><code>memo</code></td><td>No</td><td>UTF-8 string (&lt;= 28 bytes)</td><td>Reference identifier or invoice ID</td></tr>
+  </table>
+
+  <h2>Security Architecture</h2>
+  <p>To prevent man-in-the-middle URI parameter tampering in web applications, point-of-sale displays should sign payment parameters using an authenticated merchant keypair, embedding the cryptographic signature directly into the SEP-0007 payload.</p>
+</body>
+</html>
