@@ -17,6 +17,7 @@ For engineering teams requiring turnkey, production-audited data and codebases w
 
 | Product Name | Format | Coverage | Direct Commercial Link |
 | :--- | :--- | :--- | :--- |
+| **Production FastMCP Server Starter Kit 2026** | Python + TS + Docker | Turnkey FastMCP Boilerplate with Rate-Limiting & Token Authentication | [👉 **Download ($35 USD)**](https://5324936229157.gumroad.com/l/frmdq) |
 | **MCP Enterprise Directory 2026** | CSV + JSON | 40+ Production MCP Servers, Latency Benchmarks & NPM Parameters | [👉 **Download ($29 USD)**](https://5324936229157.gumroad.com/l/wjxird) |
 | **Agentic AI Workflow & Python Automation Pack** | Python Scripts | Batch Doc-to-Markdown, Financial Extraction & Multi-Model Health Probes | [👉 **Download ($39 USD)**](https://5324936229157.gumroad.com/l/zzpou) |
 | **Synthetic Reasoning Traces & Self-Correction Dataset** | Alpaca JSONL | High-Precision Autonomous Error Recovery & Parameter Validation Traces | [👉 **Download ($49 USD)**](https://5324936229157.gumroad.com/l/rcezs) |
