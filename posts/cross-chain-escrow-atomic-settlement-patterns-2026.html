@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cross-Chain Escrow & Atomic Settlement: HTLC vs Relayed State Machines | Tech Intelligence</title>
+  <style>
+    body { font-family: -apple-system, sans-serif; background: #0f172a; color: #f8fafc; line-height: 1.7; padding: 2rem 1rem; max-width: 800px; margin: 0 auto; }
+    h1 { color: #38bdf8; font-size: 2rem; border-bottom: 1px solid #334155; padding-bottom: 0.75rem; }
+    h2 { color: #818cf8; margin-top: 2rem; }
+    table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; background: #1e293b; border-radius: 0.5rem; overflow: hidden; }
+    th, td { border: 1px solid #334155; padding: 0.75rem 1rem; text-align: left; }
+    th { background: #0f172a; color: #38bdf8; }
+    a { color: #38bdf8; }
+    .back { display: inline-block; margin-bottom: 1.5rem; color: #94a3b8; text-decoration: none; }
+    .box { background: rgba(56, 189, 248, 0.1); border-left: 4px solid #38bdf8; padding: 1rem; margin: 1.5rem 0; border-radius: 4px; }
+  </style>
+</head>
+<body>
+  <a href="../index.html" class="back">← Back to Benchmarks Index</a>
+  <h1>Cross-Chain Escrow & Atomic Settlement: HTLC vs Relayed State Machines</h1>
+  <p><em>Evaluating atomic swap finality, griefing vectors, and relayer security across heterogeneous blockchain corridors.</em></p>
+
+  <div class="box">
+    <strong>Comparative Synthesis:</strong> While traditional Hash Time-Locked Contracts (HTLCs) offer cryptographic atomicity without trusted third parties, they expose market makers to free American call options during lengthy timeout windows. Modern <strong>relayed state machine bridges with optimistic challenge windows</strong> cut finality latency from hours to under 30 seconds.
+  </div>
+
+  <h2>Settlement Bridge Architecture Comparison</h2>
+  <table>
+    <tr><th>Bridge Design</th><th>Settlement Latency</th><th>Capital Efficiency</th><th>Griefing Exposure</th></tr>
+    <tr><td><strong>Classic HTLC</strong></td><td>1 to 24 Hours</td><td>Low (Full Capital Lock)</td><td>High (Free Option Timeout Exploit)</td></tr>
+    <tr><td><strong>Optimistic Relayer Machine</strong></td><td>&lt; 30 Seconds</td><td>High (Dynamic Liquidity)</td><td>Minimal (Economic Bond Slash)</td></tr>
+    <tr><td><strong>Circle CCTP (Burn &amp; Mint)</strong></td><td>~10 to 15 Minutes</td><td>Maximum (Native USDC)</td><td>Zero (Cryptographic Attestation)</td></tr>
+  </table>
+
+  <h2>Autonomous Agent Integration Recommendation</h2>
+  <p>For high-frequency autonomous trading and settlement, agents should prioritize native burn-and-mint protocols (such as Circle CCTP across Ethereum, Base, and Stellar) to eliminate liquidity fragmentation and counterparty credit risks.</p>
+</body>
+</html>
