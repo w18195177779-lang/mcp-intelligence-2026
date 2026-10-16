@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Continuous Token Vesting Simulation: Real-Time Front-End Interpolation | Tech Intelligence</title>
+  <style>
+    body { font-family: -apple-system, sans-serif; background: #0f172a; color: #f8fafc; line-height: 1.7; padding: 2rem 1rem; max-width: 800px; margin: 0 auto; }
+    h1 { color: #38bdf8; font-size: 2rem; border-bottom: 1px solid #334155; padding-bottom: 0.75rem; }
+    h2 { color: #818cf8; margin-top: 2rem; }
+    table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; background: #1e293b; border-radius: 0.5rem; overflow: hidden; }
+    th, td { border: 1px solid #334155; padding: 0.75rem 1rem; text-align: left; }
+    th { background: #0f172a; color: #38bdf8; }
+    a { color: #38bdf8; }
+    .back { display: inline-block; margin-bottom: 1.5rem; color: #94a3b8; text-decoration: none; }
+    .box { background: rgba(56, 189, 248, 0.1); border-left: 4px solid #38bdf8; padding: 1rem; margin: 1.5rem 0; border-radius: 4px; }
+  </style>
+</head>
+<body>
+  <a href="../index.html" class="back">← Back to Benchmarks Index</a>
+  <h1>Continuous Token Vesting Simulation: Real-Time Front-End Interpolation</h1>
+  <p><em>Designing 60fps continuous token accumulation tickers without polling on-chain RPC endpoints.</em></p>
+
+  <div class="box">
+    <strong>UI Latency Principle:</strong> Polling on-chain smart contracts every second to update streaming balances crushes RPC rate limits and creates stuttering UI displays. Instead, front-ends must execute <strong>local linear interpolation algorithms in requestAnimationFrame loops</strong>, reconciling with on-chain states only upon claim transactions.
+  </div>
+
+  <h2>Client-Side Vesting Ticker Architecture</h2>
+  <table>
+    <tr><th>Component</th><th>Frequency</th><th>Implementation Strategy</th></tr>
+    <tr><td><strong>Interpolation Loop</strong></td><td>60 fps (16.6ms)</td><td><code>requestAnimationFrame</code> with high-precision <code>performance.now()</code></td></tr>
+    <tr><td><strong>Accrual Math</strong></td><td>Continuous</td><td><code>vested = total * min(1.0, max(0.0, (now - start) / duration))</code></td></tr>
+    <tr><td><strong>On-Chain Reconcile</strong></td><td>On-Action</td><td>Synchronize true contract state during <code>claim_stream</code> or <code>cancel_stream</code></td></tr>
+  </table>
+
+  <h2>Precision Handling</h2>
+  <p>Use decimal string formatters with fixed 7-digit stroop precision to guarantee that the client-rendered accrued ticker exactly reflects the underlying on-chain ledger down to the single stroop.</p>
+</body>
+</html>
