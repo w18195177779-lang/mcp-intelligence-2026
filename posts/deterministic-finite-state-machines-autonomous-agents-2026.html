@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Deterministic FSMs in Autonomous Agents: Eliminating Infinite Loops | Tech Intelligence</title>
+  <style>
+    body { font-family: -apple-system, sans-serif; background: #0f172a; color: #f8fafc; line-height: 1.7; padding: 2rem 1rem; max-width: 800px; margin: 0 auto; }
+    h1 { color: #38bdf8; font-size: 2rem; border-bottom: 1px solid #334155; padding-bottom: 0.75rem; }
+    h2 { color: #818cf8; margin-top: 2rem; }
+    table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; background: #1e293b; border-radius: 0.5rem; overflow: hidden; }
+    th, td { border: 1px solid #334155; padding: 0.75rem 1rem; text-align: left; }
+    th { background: #0f172a; color: #38bdf8; }
+    a { color: #38bdf8; }
+    .back { display: inline-block; margin-bottom: 1.5rem; color: #94a3b8; text-decoration: none; }
+    .box { background: rgba(56, 189, 248, 0.1); border-left: 4px solid #38bdf8; padding: 1rem; margin: 1.5rem 0; border-radius: 4px; }
+  </style>
+</head>
+<body>
+  <a href="../index.html" class="back">← Back to Benchmarks Index</a>
+  <h1>Deterministic FSMs in Autonomous Agents: Eliminating Infinite Loops</h1>
+  <p><em>Replacing unstructured prompt-driven reasoning loops with typed state transitions, transition guards, and bounded retry budgets.</em></p>
+
+  <div class="box">
+    <strong>Reliability Invariant:</strong> Autonomous agents relying solely on unconstrained prompt loops frequently get trapped in infinite error-retry cycles, burning thousands of API tokens. Governing agent lifecycles with a <strong>deterministic Finite State Machine (FSM) with explicit transition conditions guarantees execution convergence</strong> in &lt; 5 rounds.
+  </div>
+
+  <h2>Agent FSM Lifecycle Stages</h2>
+  <table>
+    <tr><th>Current State</th><th>Allowed Transition Triggers</th><th>Next State</th><th>Safety Guard</th></tr>
+    <tr><td><code>IDLE</code></td><td>New Human Request / Goal Arm</td><td><code>PLANNING</code></td><td>Validates non-empty prompt schema</td></tr>
+    <tr><td><code>PLANNING</code></td><td>DAG Generation Complete</td><td><code>EXECUTING</code></td><td>Verifies acyclic dependency graph</td></tr>
+    <tr><td><code>EXECUTING</code></td><td>Tool Execution Failure</td><td><code>DIAGNOSING</code></td><td>Decrements per-step retry budget (Max 3)</td></tr>
+    <tr><td><code>DIAGNOSING</code></td><td>Budget Exhausted</td><td><code>BLOCKED</code></td><td>Halts runaway billing loops immediately</td></tr>
+    <tr><td><code>EXECUTING</code></td><td>All Acceptance Tests Green</td><td><code>COMPLETED</code></td><td>Cryptographic signature verification</td></tr>
+  </table>
+
+  <h2>State Machine Implementation Standard</h2>
+  <p>Store state transitions monotonically in a local append-only log (e.g. SQLite WAL). Each transition must capture the source state, destination state, triggering event, and execution proof.</p>
+</body>
+</html>
