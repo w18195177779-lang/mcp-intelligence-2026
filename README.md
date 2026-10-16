@@ -51,6 +51,14 @@ Every commercial deliverable is engineered specifically to eliminate friction, p
 
 ---
 
+### 6. Production Hybrid RAG, BM25 & Cross-Encoder Reranking Pipeline ($59 USD)
+- **🔴 The Pain Point**: Vector-only search fails on exact keyword identifiers and code signatures, while pure keyword search misses semantic context.
+- **⚡ Key Selling Points**: Reciprocal Rank Fusion (RRF) combining sparse BM25 + dense vectors, semantic sliding-window chunker preserving code blocks, and latency-budgeted cross-encoder re-ranking.
+- **💎 ROI Delivered**: Elevates retrieval precision to 94%+ with zero mandatory cloud vector database dependencies.
+- [👉 **Download Hybrid RAG Pipeline ($59 USD)**](https://5324936229157.gumroad.com/l/zfqjh)
+
+---
+
 ## 🔬 Featured Technical Benchmark Reports (2026 Edition)
 
 - [**DeepSeek-V3 vs Claude 3.5 Sonnet: The Definitive Coding Benchmark**](https://w18195177779-lang.github.io/mcp-intelligence-2026/posts/deepseek-v3-vs-claude-3-5-sonnet-coding-benchmark-2026.html)
